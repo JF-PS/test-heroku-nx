@@ -1,0 +1,38 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@nx-photos/photo/api-model": ["libs/photo/api-model/src/index.ts"],
+      "@nx-photos/photo/data-access": ["libs/photo/data-access/src/index.ts"],
+      "@nx-photos/photo/feature-list": ["libs/photo/feature-list/src/index.ts"],
+      "@nx-photos/photo/model": ["libs/photo/model/src/index.ts"],
+      "@nx-photos/photo/ui": ["libs/photo/ui/src/index.ts"],
+      "@nx-photos/user/feature-profile": [
+        "libs/user/feature-profile/src/index.ts"
+      ],
+      "@nx-photos/user/ui": ["libs/user/ui/src/index.ts"]
+    },
+    "rootDir": "."
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

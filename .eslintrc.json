@@ -1,0 +1,72 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "**/*"
+  ],
+  "plugins": [
+    "@nrwl/nx"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "rules": {
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": ["type:feature"]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": ["type:data-access","type:model", "type:ui"]
+              },
+              {
+                "sourceTag": "type:data-access",
+                "onlyDependOnLibsWithTags": ["type:api-model", "type:model"]
+              },
+              {
+                "sourceTag": "type:ui",
+                "onlyDependOnLibsWithTags": ["type:ui", "type:model"]
+              },
+              {
+                "sourceTag": "type:be",
+                "onlyDependOnLibsWithTags": ["type:api-model"]
+              },
+              {
+                "sourceTag": "scope:photo",
+                "onlyDependOnLibsWithTags": ["scope:photo"]
+              },
+              {
+                "sourceTag": "scope:user",
+                "onlyDependOnLibsWithTags": ["scope:user"]
+              }
+            ]
+          }
+        ]
+      },
+      "parserOptions": {
+        "project": "./tsconfig.*?.json"
+      },
+      "extends": [
+        "plugin:@nrwl/nx/typescript"
+      ]
+    },
+    {
+      "files": [
+        "*.js",
+        "*.jsx"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/javascript"
+      ],
+      "rules": {}
+    }
+  ]
+}
